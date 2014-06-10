@@ -35,7 +35,7 @@ static const string cascadeName1 = "/Users/Tsuruko/Desktop/School/2014 Spring/CS
 static const string cascadeName2 = "/Users/Tsuruko/Desktop/School/2014 Spring/CSE190/FaceDetection/faces2.xml";
 
 static const int motionThresh = 5;
-static const int DELAY = 10; // in mseconds
+static const int DELAY = 5; // in mseconds
 
 int main () {
     
@@ -151,6 +151,12 @@ int detectMotion(const Mat & motion, Mat & result, Mat & resCrop, int xBeg, int 
             Mat crop = result(rect);
             crop.copyTo(resCrop);
             rectangle(result,rect,color,1);
+            
+            //display motion difference image and detected area with motion
+            //Mat m = motion;
+            //rectangle(m,rect,Scalar(255, 255, 255),1);
+            //imshow("motion difference", m);
+            
         }
         return numChanges;
     }
